@@ -42,10 +42,7 @@ jobs:
     # 2. The step is currently 4.
     # Reference: https://docs.github.com/en/actions/learn-github-actions/contexts
     # Reference: https://docs.github.com/en/actions/learn-github-actions/expressions
-    if: >-
-      ${{ !github.event.repository.is_template
-          && needs.get_current_step.outputs.current_step == 4 }}
-
+    
     steps:
       # We'll need to check out the repository so that we can edit the README.
       - name: Checkout
