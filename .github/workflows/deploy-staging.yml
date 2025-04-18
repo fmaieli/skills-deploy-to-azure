@@ -9,8 +9,8 @@ env:
   ###############################################
   ### Replace <username> with GitHub username ###
   ###############################################
-  DOCKER_IMAGE_NAME: <username>-azure-ttt
-  AZURE_WEBAPP_NAME: <username>-ttt-app
+  DOCKER_IMAGE_NAME: fmaieli-azure-ttt
+  AZURE_WEBAPP_NAME: fmaieli-ttt-app
   ###############################################
 
 jobs:
@@ -48,11 +48,7 @@ jobs:
           path: public
 
       - name: Log in to GHCR
-        uses: docker/login-action@v3
-        with:
-          registry: ${{ env.IMAGE_REGISTRY_URL }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.CR_PAT }}
+        run: echo "${{ secrets.CR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
