@@ -49,6 +49,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Let's get all the branches.
+          
+      - name: Is 4 the current step?
+        run: echo "Current step is 4? ${{ needs.get_current_step.outputs.current_step == 4 }}"
 
       - name: Show current step
         run: echo "The current step is ${{ needs.get_current_step.outputs.current_step }}"
