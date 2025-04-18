@@ -50,6 +50,9 @@ jobs:
         with:
           fetch-depth: 0 # Let's get all the branches.
 
+      - name: Show current step
+        run: echo "The current step is ${{ needs.get_current_step.outputs.current_step }}"
+
       # Merge the pull open pull request
       - name: Merge Pull Request
         run: gh pr merge --squash staging-test
