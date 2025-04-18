@@ -2,7 +2,7 @@
 ###             DEPLOY TO STAGE             ###
 ###############################################
 name: Deploy to staging
-
+###############################################
 on:
   pull_request:
     types: [labeled]
